@@ -17,12 +17,15 @@ const config = {
     },
 
 };
-
+// Method to connect with the DB by providing the db config
+let pool;
 async function connectDB(){
     try{
-        console.log(config)
-        const pool = await sql.connect(config);
-        console.log("Connected to SQL Server");
+        if(!pool){
+            pool = await sql.connect(config);
+            console.log("Connected to SQL Server");
+        }
+        
         return pool;
     }
     catch(error){
@@ -32,4 +35,5 @@ async function connectDB(){
 
 module.exports = {
     connectDB,
+    sql,
 }
