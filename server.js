@@ -12,7 +12,11 @@ dotenv.config();
 const app = express();
 
 // Middleware
-app.use(cors());  // Allow frontend requests
+app.use(cors({
+  origin: "http://localhost:5173",
+  methods: "GET,POST,PUT,DELETE",
+  allowedHeaders: "Content-Type,Authorization"
+}));
 app.use(express.json()); // Parse JSON bodies
 app.use(express.urlencoded({extended:true})); // Parse the url's
 
