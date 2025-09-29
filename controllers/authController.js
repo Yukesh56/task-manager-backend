@@ -35,10 +35,6 @@ async function loginUser(req, res){
     try{
         const {email, password} = req.body;
 
-        if (!email || !password) {
-            return res.status(400).json({ message: "Email and password required." });
-        }
-
         //check user exists or not
         const user = await getUserByEmail(email);
         if (!user) {

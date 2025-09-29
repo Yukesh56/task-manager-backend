@@ -20,6 +20,7 @@ app.use(cors({
 app.use(express.json()); // Parse JSON bodies
 app.use(express.urlencoded({extended:true})); // Parse the url's
 
+// checking purpose
 app.use((req,res,next)=>{
     console.log(req.method, req.url)
     next()
