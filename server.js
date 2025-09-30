@@ -3,6 +3,7 @@ const cors = require ("cors")
 const dotenv = require("dotenv")
 const { connectDB } = require("./config/db");
 const authRoutes = require("./routes/authRoutes");
+const projectRoutes = require("./routes/projectRoutes")
 
 
 // Load environment variables
@@ -26,8 +27,11 @@ app.use((req,res,next)=>{
     next()
 })
 
-// //binding the auth routes with express.
+//binding the auth routes with express.
 app.use('/api/auth', authRoutes);
+
+//binding the project routes with the express
+app.use("/api/project", projectRoutes)
 
 
 
@@ -35,9 +39,6 @@ app.use('/api/auth', authRoutes);
 app.get('/api/health',(req,res)=>{
     res.json({message:"API is running 🚀"})
 });
-
-
-
 
 // Error handling middleware.
 app.use((err, req, res, next) => {

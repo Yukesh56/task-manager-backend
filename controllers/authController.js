@@ -50,7 +50,7 @@ async function loginUser(req, res){
         //Generate the jwt Token
         const token  = jwt.sign({userId: user.user_id, email: user.email}, 
             process.env.JWT_SECRET, 
-            {expiresIn: '15m'});
+            {expiresIn: '30m'});
 
         res.status(200).json({message:"Login Successful", token});
     }
