@@ -4,6 +4,7 @@ const dotenv = require("dotenv")
 const { connectDB } = require("./config/db");
 const authRoutes = require("./routes/authRoutes");
 const projectRoutes = require("./routes/projectRoutes")
+const taskRoutes = require("./routes/taskRoutes")
 
 
 // Load environment variables
@@ -32,6 +33,9 @@ app.use('/api/auth', authRoutes);
 
 //binding the project routes with the express
 app.use("/api/project", projectRoutes)
+
+//binding the task routes with the express
+app.use("/api/task", taskRoutes)
 
 
 
