@@ -4,7 +4,7 @@ const {connectDB, sql} = require("../config/db")
 async function createTask(taskData) {
     try{
         const { project_id, title, description, due_date, status, priority } = taskData;
-
+        console.log(due_date)
         const pool = await connectDB(); // Making connection with the DB
 
         const query = `
@@ -26,6 +26,7 @@ async function createTask(taskData) {
     }
     catch(error){
         console.log("Error in createTask----->", error.message)
+        throw new Error(error.message)
     }
 };
 
@@ -46,6 +47,7 @@ async function getTasksByProject(projectId) {
     }
     catch(error){
         console.log("Error in getTasksByProject----->", error.message)
+        throw new Error(error.message)
     }
 };
 
@@ -77,6 +79,7 @@ async function updateTask(taskId, updates) {
     }
     catch(error){
         console.log("Error in updateTask----->", error.message)
+        throw new Error(error.message)
     }
   
 }
@@ -92,6 +95,7 @@ async function softDeleteTask(taskId) {
     }
     catch(error){
         console.log("Error in softDeleteTask----->", error.message)
+        throw new Error(error.message)
     }
 };
 

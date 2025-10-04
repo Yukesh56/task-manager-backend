@@ -18,6 +18,7 @@ async function createProject(userId, projectName, description){
     }
     catch(error){
         console.log("Error in Creating project----->", error.message)
+        throw new Error(error.message)
     }
 };
 
@@ -37,6 +38,7 @@ async function getProjects(userId){
     }
     catch(error){
         console.log("Error in getProjects----->", error.message)
+        throw new Error(error.message)
     }
 };
 
@@ -56,6 +58,7 @@ async function updateProject(projectId, name, description){
     }
     catch(error){
         console.log("Error in updateProject----->", error.messageessage)
+        throw new Error(error.message)
     }
 };
 
@@ -70,6 +73,7 @@ async function deleteProject(projectId){
     }
     catch(error){
         console.log("Error in deleteProject----->", error.message)
+        throw new Error(error.message)
     }
 }
 

@@ -30,6 +30,7 @@ async function getUserByEmail(email){
     }
     catch(error){
         console.log("Error in getting User by mailId----->", error.essage)
+        
     }
 }
 
